@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
 
   switch(action.type) {
     case NAVIGATION_ITEMS_SUCCESS:
-      return state.set('entries', action.payload);
+      return state.set('entries', fromJS(action.payload));
     default:
       return state;
   }

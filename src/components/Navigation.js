@@ -5,10 +5,10 @@ export default class Navigation extends Component {
   render() {
     const { items } = this.props;
 
+    const navItems = items.valueSeq().map((item) => (<span key={item.get('id')}>{item.get('name')}</span>));
     return (
       <div>
-        Navigation!
-        {items.map((item) => <div key={item.id}>{item.name}</div> )}
+        {navItems}
       </div>
     );
   }

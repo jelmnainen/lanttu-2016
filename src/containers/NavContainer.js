@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchNavigationItems } from '../actions/navigationActions';
-import { Navigation } from '../components/Navigation';
+import Navigation from '../components/Navigation';
 
-class NavigationContainer extends Component {
+export class NavigationContainer extends Component {
 
   componentWillMount() {
     this.props.fetchNavigationItems();
   }
 
   render() {
-    console.log(this.props);
     return(
       <Navigation
         items={this.props.navItems}

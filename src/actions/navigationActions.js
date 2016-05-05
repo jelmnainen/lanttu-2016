@@ -1,7 +1,7 @@
 export const NAVIGATION_ITEMS_SUCCESS = 'NAVIGATION_ITEMS_SUCCESS';
 
 export const fetchNavigationItems = () => ({
-  action: NAVIGATION_ITEMS_SUCCESS,
+  type: NAVIGATION_ITEMS_SUCCESS,
   payload: {
     1: {
       'id': 1,
