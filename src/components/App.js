@@ -5,9 +5,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="ui vertically padded grid container">
-        <div className="row">
-          <div className="column">
+      <div className="">
+        <div className="">
+          <div className="">
             <NavContainer />
           </div>
         </div>
