@@ -15,6 +15,13 @@ function get_content_fetch_url(content_type) {
   return `https://cdn.contentful.com/spaces/${space_id}/entries?access_token=${API_KEY}&content_type=${content_type}`;
 }
 
+function mapObj(obj, iterator) {
+  return Object.keys(obj).reduce((o, k) => {
+    o[k] = iterator(k, obj[k]);
+    return o;
+  }, {})
+}
+
 function prequest (url) {
   return new Promise((resolve, reject) => {
     request.get(url, (err, req, body) => {
@@ -37,7 +44,13 @@ function get_content(content_type) {
             return assets;
           }, {})
     };
-  })
+  }).then(resources => resources.items.map(item => {
+    return mapObj(item, (key, value) => {
+      if (typeof value !== 'object') return value;
+      if (value.sys && value.sys.linkType === 'Asset') return resources.assets[value.sys.id];
+      return value;
+    })
+  }))
 }
 
 
