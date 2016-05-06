@@ -30,10 +30,12 @@ function get_content(content_type) {
   .then(r => {
     return {
         items: r.items.map(item => item.fields),
-        assets: r.includes.Asset.map(asset => Object.assign(asset.fields, {id: asset.sys.id})).reduce((o, v, i) => {
-          o[v.id] = v;
-          return o;
-        }, {})
+        assets: r.includes.Asset
+          .map(asset => Object.assign(asset.fields, {id: asset.sys.id}))
+          .reduce((assets, asset) => {
+            assets[asset.id] = asset;
+            return assets;
+          }, {})
     };
   })
 }
