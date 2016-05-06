@@ -10,6 +10,8 @@ import { Router, browserHistory } from 'react-router';
 import store from './store';
 import routes from './routes';
 
+require('../style.css');
+
 const container = document.getElementById('root');
 const root = (
   <Provider store={store}>
