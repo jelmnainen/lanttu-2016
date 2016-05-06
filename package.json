@@ -4,6 +4,7 @@
   "description": "Frontend for joke-lan.net",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.3.5",
     "classnames": "^2.2.5",
     "express": "^4.13.4",
     "immutable": "^3.8.1",
@@ -13,7 +14,8 @@
     "react-router": "^2.4.0",
     "redux": "^3.5.2",
     "redux-immutablejs": "0.0.8",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
