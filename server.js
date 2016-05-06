@@ -35,15 +35,16 @@ function get_content(content_type) {
   return prequest(get_content_fetch_url(content_type))
   .then(r => JSON.parse(r))
   .then(r => {
-    return {
-        items: r.items.map(item => item.fields),
-        assets: r.includes.Asset
-          .map(asset => Object.assign(asset.fields, {id: asset.sys.id}))
-          .reduce((assets, asset) => {
-            assets[asset.id] = asset;
-            return assets;
-          }, {})
-    };
+    const contents = {items: r.items.map(item => item.fields)};
+    if (r.includes && r.includes.Assets) {
+      contents.assets = r.includes.Asset
+        .map(asset => Object.assign(asset.fields, {id: asset.sys.id}))
+        .reduce((assets, asset) => {
+          assets[asset.id] = asset;
+          return assets;
+        }, {})
+    }
+    return contents;
   }).then(resources => resources.items.map(item => {
     return mapObj(item, (key, value) => {
       if (typeof value !== 'object') return value;
@@ -74,7 +75,7 @@ function get_instructions() {
 }
 
 function get_frontpage() {
-  return get_content('frontpageGreetings')
+  return get_content('frontpageGreeting').then(greetings => greetings.find(() => true))
 }
 
 const app = express();
