@@ -4,7 +4,86 @@ const express = require('express');
 const root = path.join(__dirname, 'dist');
 const port = process.env.PORT || 8080;
 
+const request = require('request');
+const Promise = require('bluebird');
+
+const API_KEY = "a4c3d157961b7db2d0fd9a98611aa0738ba896386bf56e94aa4af7fea094e1c9";
+const space_id = "50is5y5r38dm";
+
+
+function get_content_fetch_url(content_type) {
+  return `https://cdn.contentful.com/spaces/${space_id}/entries?access_token=${API_KEY}&content_type=${content_type}`;
+}
+
+function prequest (url) {
+  return new Promise((resolve, reject) => {
+    request.get(url, (err, req, body) => {
+      if (err) return reject(err);
+      return resolve(body);
+    });
+  });
+}
+
+function get_content(content_type) {
+  return prequest(get_content_fetch_url(content_type))
+  .then(r => JSON.parse(r))
+  .then(r => {
+    return {
+        items: r.items.map(item => item.fields),
+        assets: r.includes.Asset
+          .map(asset => Object.assign(asset.fields, {id: asset.sys.id}))
+          .reduce((assets, asset) => {
+            assets[asset.id] = asset;
+            return assets;
+          }, {})
+    };
+  })
+}
+
+
+function get_news() {
+  return get_content('news')
+}
+
+function get_compos() {
+  return get_content('compos')
+}
+
+function get_news() {
+  return get_content('news')
+}
+
+function get_partners() {
+  return get_content('partners')
+}
+function get_instructions() {
+  return get_content('instructions')
+}
+
+function get_frontpage() {
+  return get_content('frontpageGreetings')
+}
+
 const app = express();
+
+app.get('/api/compos', (req, res) => {
+  get_compos().then(c => res.send(c))
+});
+
+app.get('/api/news', (req, res) => {
+  get_news().then(c => res.send(c))
+});
+
+app.get('/api/partners', (req, res) => {
+  get_partners().then(c => res.send(c))
+});
+app.get('/api/instructions', (req, res) => {
+  get_instructions().then(c => res.send(c))
+});
+app.get('/api/frontpage', (req, res) => {
+  get_frontpage().then(c => res.send(c))
+});
+
 
 if (process.env.NODE_ENV === 'production') {
 
