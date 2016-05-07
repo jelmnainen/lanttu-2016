@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux-immutablejs';
 
 import navigation from './navigationReducer';
-import posts from './postsReducer';
+import ingress from './ingressReducer';
 
 const finalReducer = combineReducers({
   navigation,
-  posts,
+  ingress,
 });
 
 export default finalReducer;
