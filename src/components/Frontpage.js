@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import Ingress from './Ingress';
 import Newsfeed from './Newsfeed';
-import Conpos from './Conpos';
+import Compos from './Compos';
 import Partners from './Partners';
 
 export default class Frontpage extends Component {
 
   render() {
-    const { ingressData } = this.props;
+    const { ingressData, newsfeedData } = this.props;
     return(
       <div>
         <div className="hero">
@@ -19,8 +19,10 @@ export default class Frontpage extends Component {
           ingress={ingressData.get('ingress')}
           paragraph={ingressData.get('paragraph')}
         />
-        <Newsfeed />
-        <Conpos />
+        <Newsfeed
+          entries={newsfeedData.get('entries')}
+        />
+        <Compos />
         <Partners />
       </div>
     );

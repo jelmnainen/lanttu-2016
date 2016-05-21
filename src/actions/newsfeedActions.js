@@ -9,11 +9,9 @@ const newsfeedSuccess = (data) => ({
 
 export const newsfeedFetch = () =>
   (dispatch) => {
-    console.log('we should fetch...')
     fetch('http://localhost:8080/api/news')
       .then((response) => response.json())
       .then((json) => {
-        console.log('json', json)
         dispatch(newsfeedSuccess(json));
       })
       .catch((err) => {

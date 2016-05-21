@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ingressFetch } from '../actions/ingressActions';
 import { newsfeedFetch } from '../actions/newsfeedActions';
-
+import { composFetch } from '../actions/composActions';
 import Frontpage from '../components/Frontpage';
 
 export default class FrontpageContainer extends Component {
@@ -12,21 +12,23 @@ export default class FrontpageContainer extends Component {
     const { dispatch } = this.props;
     dispatch(ingressFetch());
     dispatch(newsfeedFetch());
+    dispatch(composFetch());
   }
 
   render() {
-    const { ingressData } = this.props;
-
+    const { ingressData, newsfeedData } = this.props;
     return(
       <Frontpage
         ingressData={ingressData}
+        newsfeedData={newsfeedData}
       />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  ingressData: state.get('ingress')
+  ingressData: state.get('ingress'),
+  newsfeedData: state.get('newsfeed')
 });
 
 export default connect(mapStateToProps)(FrontpageContainer);
