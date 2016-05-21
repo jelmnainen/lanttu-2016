@@ -35,8 +35,8 @@ function get_content(content_type) {
   return prequest(get_content_fetch_url(content_type))
   .then(r => JSON.parse(r))
   .then(r => {
-    const contents = {items: r.items.map(item => item.fields)};
-    if (r.includes && r.includes.Assets) {
+    const contents = {items: r.items.map(item => Object.assign({}, item.fields, {id: item.sys.id}))};
+    if (r.includes && r.includes.Asset) {
       contents.assets = r.includes.Asset
         .map(asset => Object.assign(asset.fields, {id: asset.sys.id}))
         .reduce((assets, asset) => {
@@ -48,15 +48,12 @@ function get_content(content_type) {
   }).then(resources => resources.items.map(item => {
     return mapObj(item, (key, value) => {
       if (typeof value !== 'object') return value;
-      if (value.sys && value.sys.linkType === 'Asset') return resources.assets[value.sys.id];
+      if (value.sys && value.sys.linkType === 'Asset') {
+        return resources.assets[value.sys.id];
+      }
       return value;
     })
   }))
-}
-
-
-function get_news() {
-  return get_content('news')
 }
 
 function get_compos() {
