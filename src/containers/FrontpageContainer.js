@@ -16,11 +16,12 @@ export default class FrontpageContainer extends Component {
   }
 
   render() {
-    const { ingressData, newsfeedData } = this.props;
+    const { ingressData, newsfeedData, composData } = this.props;
     return(
       <Frontpage
         ingressData={ingressData}
         newsfeedData={newsfeedData}
+        composData={composData}
       />
     );
   }
@@ -28,7 +29,8 @@ export default class FrontpageContainer extends Component {
 
 const mapStateToProps = (state) => ({
   ingressData: state.get('ingress'),
-  newsfeedData: state.get('newsfeed')
+  newsfeedData: state.get('newsfeed'),
+  composData: state.get('compos'),
 });
 
 export default connect(mapStateToProps)(FrontpageContainer);

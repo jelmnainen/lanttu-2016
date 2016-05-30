@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 export default class Compos extends Component {
 
   render() {
+    const { entries } = this.props;
     return(
       <div className="content compos">
         <div className="content-wrapper">
           <h2>KOMPOT</h2>
           <div className="compo-boxes">
+
 
             <div className="compo-box">
               <div className="compo-cover" style={{backgroundImage: 'url(http://www.fillmurray.com/g/600/400)'}}>
