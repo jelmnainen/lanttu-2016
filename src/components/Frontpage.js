@@ -8,7 +8,7 @@ import Partners from './Partners';
 export default class Frontpage extends Component {
 
   render() {
-    const { ingressData, newsfeedData, composData } = this.props;
+    const { ingressData, newsfeedData, composData, partnersData } = this.props;
     return(
       <div>
         <div className="hero">
@@ -25,7 +25,8 @@ export default class Frontpage extends Component {
         <Compos
           entries={composData.get('entries')}
         />
-        <Partners />
+        <Partners
+          entries={partnersData.get('entries')} />
       </div>
     );
   }

@@ -5,7 +5,6 @@ export default class Newsfeed extends Component {
   render() {
     return(
       <footer className="content footer">
-        FOOTER
       </footer>
     );
   }
