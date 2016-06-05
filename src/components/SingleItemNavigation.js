@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
+import Moment from '../utils/finnishMoment';
 
-export default class Navigation extends Component {
+export default class SingleItemNavigation extends Component {
 
   render() {
-
-    // Reserve a place button, insert under "lead" when it's time
-    // <p className="lead">
-    //   <a href="#" className="btn btn-lg btn-default">Varaa konepaikkasi</a>
-    // </p>
-
+    const { author, published, title, cover } = this.props;
     return (
-      <div className="site-wrapper">
+      <div className={`site-wrapper short-cover`}>
         <div className="site-wrapper-inner">
           <div className="cover-container">
             <div id="nav-container" className="masthead clearfix">
@@ -27,9 +23,9 @@ export default class Navigation extends Component {
               </div>
             </div>
             <div className="inner cover">
-              <h1 className="cover-heading">Joke-LAN</h1>
-              <p className="lead">21.-23. @ Jokelan koulukeskus</p>
-
+              <h1 className="cover-heading">{title}</h1>
+              <p className="lead">{author}</p>
+              <p className="lead">{published}</p>
             </div>
           </div>
         </div>

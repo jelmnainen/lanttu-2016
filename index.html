@@ -28,7 +28,7 @@
         function resizeDiv() {
           var height = $(window).height();
           var element = $('.site-wrapper');
-          if (!element.attr('class').includes('short-cover')) {
+          if (element.attr('class') && !element.attr('class').includes('short-cover')) {
             element.css({'height': height });
           }
         }
