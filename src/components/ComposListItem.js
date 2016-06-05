@@ -12,7 +12,6 @@ export default class ComposListItem extends Component {
       backgroundSize: 'cover',
     }
 
-    console.log('entry', entry.toJS())
     return (
       <div className="col-md-4 compo-wrapper">
         <div className="col-md-12 compo-container">

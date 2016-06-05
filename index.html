@@ -20,10 +20,10 @@
         function resizeDiv() {
           var height = $(window).height();
           var element = $('.site-wrapper');
-          element.css({'height': height });
-
+          if (!element.attr('class').includes('short-cover')) {
+              element.css({'height': height });
+          }
         }
-
       });
 
     </script>
