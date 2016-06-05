@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 export default class Navigation extends Component {
 
   render() {
+    const wrapperClass = this.props.location == '/frontpage' ? '' : 'short-cover';
+
+    // Reserve a place button, insert under "lead" when it's time 
+    // <p className="lead">
+    //   <a href="#" className="btn btn-lg btn-default">Varaa konepaikkasi</a>
+    // </p>
 
     return (
-      <div className="site-wrapper">
+      <div className={`site-wrapper ${wrapperClass}`}>
         <div className="site-wrapper-inner">
           <div className="cover-container">
             <div id="nav-container" className="masthead clearfix">
@@ -24,9 +30,7 @@ export default class Navigation extends Component {
             <div className="inner cover">
               <h1 className="cover-heading">Joke-LAN</h1>
               <p className="lead">21.-23. @ Jokelan koulukeskus</p>
-              <p className="lead">
-                <a href="#" className="btn btn-lg btn-default">Varaa konepaikkasi</a>
-              </p>
+
             </div>
           </div>
         </div>
