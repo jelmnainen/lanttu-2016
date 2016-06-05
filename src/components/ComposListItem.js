@@ -14,15 +14,22 @@ export default class ComposListItem extends Component {
 
     console.log('entry', entry.toJS())
     return (
-      <div className="compo-box">
-        <div className="compo-cover" style={bgImageStyle}>
-        </div>
-        <div className="compo-content">
-          <h4>{ `${Moment(entry.get('starts')).format('ddd')} - ${Moment(entry.get('starts')).format('ddd')}`}</h4>
-          <h3>{entry.get('title')}</h3>
-        </div>
-        <div className="compo-footer">
-          <Link to={`/compos/${entry.get('id')}`}>LUE LISÄÄ</Link>
+      <div className="col-md-4 compo-wrapper">
+        <div className="col-md-12 compo-container">
+          <div className="row">
+            <div className="col-md-12 compo-header" style={bgImageStyle}></div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 compo-content">
+              <h4>{ `${Moment(entry.get('starts')).format('ddd')} - ${Moment(entry.get('starts')).format('ddd')}`}</h4>
+              <h3>{entry.get('title')}</h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 compo-footer">
+              <Link to={`/compos/${entry.get('id')}`}>LUE LISÄÄ</Link>
+            </div>
+          </div>
         </div>
       </div>
     )

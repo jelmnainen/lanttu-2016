@@ -10,16 +10,18 @@ export default class Partners extends Component {
     if (entries.size < 0 ) return null;
 
     return(
-      <div class="content partners">
-        <div class="content-wrapper">
-          <h2>YHTEISTYÖTAHOT</h2>
-          <div id="partners">
-            {entries.valueSeq().map(partner =>
-              <PartnerCard item={partner} key={partner.id} />
-            )}
+      <section id="partners">
+        <div className="row">
+          <div className="col-md-12">
+            <h2>YHTEISTYÖTAHOT</h2>
           </div>
         </div>
-      </div>
+        <div className="row">
+          {entries.valueSeq().map(partner =>
+            <PartnerCard item={partner} key={partner.id} />
+          )}
+        </div>
+      </section>
     );
   }
 }
