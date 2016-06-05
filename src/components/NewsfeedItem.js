@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-import Moment from 'moment'
 import { Link } from 'react-router';
 
 export default class NewsfeedItem extends Component {
 
   render() {
-    const { item } = this.props;
+    const { item, count } = this.props;
     const imgUrl = item.getIn(['cover', 'file', 'url']);
     const bgStyle = {
       backgroundImage: 'url(' + imgUrl + ')',
     }
+
+    const image = (
+      <div className="col-md-6 news-cover">
+        <img src={imgUrl} />
+      </div>
+    )
+
+    const text = (
+      <div className="col-md-6">
+        <h3>{item.get('title')}</h3>
+        <p>{item.get('shortDescription')}</p>
+        <Link to={`/news/${item.get('id')}`} className="btn btn-xs btn-default">Lue lisää</Link>
+      </div>
+    )
+
     return(
-      <div className="compo-box">
-        <div className="compo-cover" style={bgStyle} >
-        </div>
-        <div className="compo-content">
-          <h4>{Moment(item.get('published')).format('D.M.YYYY')}</h4>
-          <h3>{item.get('title')}</h3>
-        </div>
-        <div className="compo-footer">
-          <Link to={`/news/${item.get('id')}`} >
-            LUE LISÄÄ
-          </Link>
+      <div className="row">
+        <div className="col-md-12">
+          {count % 2 === 0 ? image : text}
+          {count % 2 === 0 ? text : image}
         </div>
       </div>
     );

@@ -10,10 +10,7 @@ export default class Frontpage extends Component {
   render() {
     const { ingressData, newsfeedData, composData, partnersData } = this.props;
     return(
-      <div>
-        <div className="hero">
-          <h1>JOKE-LAN</h1>
-        </div>
+      <div className="container">
         <Ingress
           header={ingressData.get('header')}
           ingress={ingressData.get('ingress')}

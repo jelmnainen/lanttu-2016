@@ -1,16 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-
-import NavContainer from '../containers/NavContainer';
-import FooterContainer from '../containers/FooterContainer';
+import Navigation from './Navigation'
 
 export default class App extends Component {
 
   render() {
     return (
       <div>
-        <NavContainer />
+        <Navigation />
         {this.props.children}
-        <FooterContainer />
       </div>
     );
   }
