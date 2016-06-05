@@ -13,6 +13,14 @@
       $(document).ready(function(){
         resizeDiv();
 
+        window.addEventListener('scroll', function(e) {
+          if(window.scrollY > 100) {
+            document.getElementById('nav-container').classList.add('nav-shadow');
+          } else {
+            document.getElementById('nav-container').classList.remove('nav-shadow');
+          }
+        });
+
         window.onresize = function(event) {
           resizeDiv();
         }
@@ -21,7 +29,7 @@
           var height = $(window).height();
           var element = $('.site-wrapper');
           if (!element.attr('class').includes('short-cover')) {
-              element.css({'height': height });
+            element.css({'height': height });
           }
         }
       });
