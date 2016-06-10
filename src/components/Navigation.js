@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class Navigation extends Component {
+
+  componentDidMount() {
+    window.onresize()
+  }
 
   render() {
 
@@ -8,7 +13,6 @@ export default class Navigation extends Component {
     // <p className="lead">
     //   <a href="#" className="btn btn-lg btn-default">Varaa konepaikkasi</a>
     // </p>
-
     return (
       <div className="site-wrapper">
         <div className="site-wrapper-inner">
@@ -20,8 +24,8 @@ export default class Navigation extends Component {
                   <ul className="nav masthead-nav">
                     <li className="active"><a href="/">Etusivu</a></li>
                     <li><a href="#news">Uutiset</a></li>
-                    <li><a href="#ohjeet">Ohjeet</a></li>
-                    <li><a href="#kompot">Kompot</a></li>
+                    <li><Link to="/instructions">Ohjeet</Link></li>
+                    <li><a href="#compos">Kompot</a></li>
                   </ul>
                 </nav>
               </div>

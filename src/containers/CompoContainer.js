@@ -5,7 +5,7 @@ import { composFetch } from '../actions/composActions';
 import Compo from '../components/Compo';
 import SingleItemNavigation from '../components/SingleItemNavigation'
 
-export default class CompoContainer extends Component {
+class CompoContainer extends Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
@@ -14,7 +14,6 @@ export default class CompoContainer extends Component {
 
   render() {
     const item = this.props.compoItems.find((item) => item.get('id') == this.props.routeParams.id)
-    console.log('item', item);
     return(
       <div>
         <SingleItemNavigation
@@ -28,7 +27,6 @@ export default class CompoContainer extends Component {
           schelude={item.get('scheludeDescription')}
           prizes={item.get('prices')}
           rules={item.get('rules')}
-          cover=
         />
       </div>
     );

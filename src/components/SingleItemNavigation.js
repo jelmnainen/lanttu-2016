@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from '../utils/finnishMoment';
+import { Link } from 'react-router'
 
 export default class SingleItemNavigation extends Component {
 
@@ -14,10 +15,10 @@ export default class SingleItemNavigation extends Component {
                 <h3 className="masthead-brand">Joke-LAN</h3>
                 <nav>
                   <ul className="nav masthead-nav">
-                    <li className="active"><a href="/">Etusivu</a></li>
-                    <li><a href="#news">Uutiset</a></li>
-                    <li><a href="#ohjeet">Ohjeet</a></li>
-                    <li><a href="#kompot">Kompot</a></li>
+                    <li className="active"><Link to="/frontpage">Etusivu</Link></li>
+                    <li><Link to="/frontpage#news">Uutiset</Link></li>
+                    <li><Link to="/instructions">Ohjeet</Link></li>
+                    <li><Link to="/frontpage#compos">Kompot</Link></li>
                   </ul>
                 </nav>
               </div>

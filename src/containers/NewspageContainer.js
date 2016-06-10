@@ -14,7 +14,6 @@ export default class NewspageContainer extends Component {
 
   render() {
     const item = this.props.newsItems.find((item) => item.get('id') == this.props.routeParams.id)
-    console.log('item', item);
     return(
       <div>
         <SingleItemNavigation

@@ -8,7 +8,7 @@ import { partnersFetch } from '../actions/partnersActions';
 
 import Frontpage from '../components/Frontpage';
 
-export default class FrontpageContainer extends Component {
+class FrontpageContainer extends Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
