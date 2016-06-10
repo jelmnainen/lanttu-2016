@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export default class Newspage extends Component {
 
@@ -16,7 +17,7 @@ export default class Newspage extends Component {
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <p>
-              { content }
+              <ReactMarkdown source={content} />
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fromJS } from 'immutable'
 
 import { newsfeedFetch } from '../actions/newsfeedActions';
 import Newspage from '../components/Newspage';
@@ -13,14 +14,27 @@ export default class NewspageContainer extends Component {
   }
 
   render() {
-    const item = this.props.newsItems.find((item) => item.get('id') == this.props.routeParams.id)
+    const newspiece = this.props.newsItems.find((item) => item.get('id') == this.props.routeParams.id)
+    const defaultNewspiece = fromJS({
+      author: null,
+      published: null,
+      title: null,
+      cover: {
+        file: {
+          url: null,
+        },
+      },
+      ingress: null,
+      content: null,
+    });
+    const item = newspiece ? newspiece : defaultNewspiece;
     return(
       <div>
         <SingleItemNavigation
           author={item.get('author')}
           published={item.get('published')}
           title={item.get('title')}
-          cover={item.get('cover')}
+          cover={item.getIn(['cover', 'file', 'url'])}
         />
         <Newspage
           ingress={item.get('ingress')}

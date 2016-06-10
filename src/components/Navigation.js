@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default class Navigation extends Component {
 
   componentDidMount() {
-    window.onresize()
+    window.onresize && window.onresize()
   }
 
   render() {
@@ -22,9 +22,9 @@ export default class Navigation extends Component {
                 <h3 className="masthead-brand">Joke-LAN</h3>
                 <nav>
                   <ul className="nav masthead-nav">
-                    <li className="active"><a href="/">Etusivu</a></li>
+                    <li><a href="/">Etusivu</a></li>
                     <li><a href="#news">Uutiset</a></li>
-                    <li><Link to="/instructions">Ohjeet</Link></li>
+                    <li><Link to="/instructions#nav-container">Ohjeet</Link></li>
                     <li><a href="#compos">Kompot</a></li>
                   </ul>
                 </nav>
