@@ -13,9 +13,11 @@ export default class Newsfeed extends Component {
             <h2>UUTISET</h2>
           </div>
         </div>
+        <div>
           {entries.valueSeq().map(
             (entry, i) => <NewsfeedItem item={entry} count={i} key={entry.get('title') + entry.get('published')} />
           )}
+        </div>
       </section>
     );
   }

@@ -26,7 +26,7 @@ export default class NewsfeedItem extends Component {
 
     return(
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-12 newsfeed-item">
           {count % 2 === 0 ? image : text}
           {count % 2 === 0 ? text : image}
         </div>

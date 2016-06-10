@@ -6,9 +6,11 @@ export default class Ingress extends Component {
     const {header, ingress, paragraph} = this.props;
 
     return(
-      <header className="row">
-        <div className="col-md-12">
-          <h1 id="ingress">{ingress}</h1>
+      <header>
+        <div classNamw="row">
+          <div className="col-md-12">
+            <h1 id="ingress">{ingress}</h1>
+          </div>
         </div>
         <div className="row">
           <div className="col-md-12 main-paragraph">

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default class Compo extends Component {
 
@@ -14,7 +15,7 @@ export default class Compo extends Component {
           </div>
           <div className="row">
             <div className="col-md-12 compo-panel-content">
-              {content}
+              <ReactMarkdown source={content} />
             </div>
           </div>
         </div>
