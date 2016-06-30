@@ -9,7 +9,7 @@ const newsfeedSuccess = (data) => ({
 
 export const newsfeedFetch = () =>
   (dispatch) => {
-    fetch('http://localhost:8080/api/news')
+    fetch('/api/news')
       .then((response) => response.json())
       .then((json) => {
         dispatch(newsfeedSuccess(json));

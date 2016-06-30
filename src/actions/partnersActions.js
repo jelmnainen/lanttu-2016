@@ -9,7 +9,7 @@ const partnersSuccess = (data) => ({
 
 export const partnersFetch = () =>
   (dispatch) => {
-    fetch('http://localhost:8080/api/partners')
+    fetch('/api/partners')
       .then((response) => response.json())
       .then((json) => {
         dispatch(partnersSuccess(json));

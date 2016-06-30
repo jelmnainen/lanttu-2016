@@ -9,7 +9,7 @@ const composSuccess = (data) => ({
 
 export const composFetch = () =>
   (dispatch) => {
-    fetch('http://localhost:8080/api/compos')
+    fetch('/api/compos')
       .then((response) => response.json())
       .then((json) => {
         dispatch(composSuccess(json));

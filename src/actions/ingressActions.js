@@ -9,7 +9,7 @@ const ingressSuccess = (data) => ({
 
 export const ingressFetch = () =>
   (dispatch) => {
-    fetch('http://localhost:8080/api/frontpage')
+    fetch('/api/frontpage')
       .then((response) => response.json())
       .then((json) => {
         dispatch(ingressSuccess(json));
